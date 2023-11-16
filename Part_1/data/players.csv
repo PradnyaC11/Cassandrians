@@ -1,0 +1,31 @@
+player_id,player_name,team_id,speciality
+1,Sachin Tendulkar,1,Batsman
+2,Ricky Ponting,2,Batsman
+3,Brian Lara,3,Batsman
+4,Jacques Kallis,4,All-rounder
+5,Shane Warne,5,Bowler
+6,Muttiah Muralitharan,5,Bowler
+7,Glenn McGrath,2,Bowler
+8,Anil Kumble,1,Bowler
+9,Kumar Sangakkara,3,Batsman
+10,Mahela Jayawardene,3,Batsman
+11,Adam Gilchrist,2,Wicket-keeper
+12,Mark Waugh,2,Batsman
+13,Sanath Jayasuriya,3,All-rounder
+14,Younis Khan,6,Batsman
+15,Shoaib Akhtar,6,Bowler
+16,Wasim Akram,6,Bowler
+17,Inzamam-ul-Haq,6,Batsman
+18,Virender Sehwag,1,Batsman
+19,Rahul Dravid,1,Batsman
+20,VVS Laxman,1,Batsman
+21,Harbhajan Singh,1,Bowler
+22,Zaheer Khan,1,Bowler
+23,Andrew Flintoff,4,All-rounder
+24,Michael Vaughan,4,Batsman
+25,Kevin Pietersen,4,Batsman
+26,James Anderson,4,Bowler
+27,Stuart Broad,4,Bowler
+28,AB de Villiers,7,Batsman
+29,Hashim Amla,7,Batsman
+30,Dale Steyn,8,Bowler

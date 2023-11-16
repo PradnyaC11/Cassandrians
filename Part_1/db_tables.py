@@ -1,4 +1,5 @@
 import psycopg2
+import csv
 
 DATABASE_NAME = 'cassandrians'
 DB_USER = "postgres"
@@ -8,7 +9,7 @@ DB_PORT = 5432
 VENUE_TABLE = 'venue'
 TEAM_TABLE = "team"
 MATCH_TABLE = "match"
-MATCH_PLAYER_TABLE = "mathc_player"
+MATCH_PLAYER_TABLE = "match_player"
 MATCH_OFFICIALS_TABLE = "match_officials"
 PLAYERS_TABLE = "players"
 BOWL_BY_BOWL_TABLE = "bowl_by_bowl"
@@ -153,20 +154,44 @@ def create_bowl_by_bowl_table(curs):
                                        )
     curs.execute(create_bowl_by_bowl_table_query)
 
+def insert_data_into_table(curs, table_name):
+    data = read_csv_datacsvObject = csv.reader(open(r'Part_1/data/'+table_name+'.csv', 'r'), dialect = 'excel',  delimiter = ',')
+    next(data)
+    # Get the column names from the table
+    curs.execute("SELECT column_name FROM information_schema.columns WHERE table_name = %s ORDER BY ordinal_position", (table_name,))
+    column_names = [row[0] for row in curs.fetchall()]
+    # Insert the data into the table
+    for row in data:
+        # Insert None for NULL values
+        for i, value in enumerate(row):
+            if value == "NULL":
+                row[i] = None
+        # Insert the values into the table
+        curs.execute("INSERT INTO %s (%s) VALUES (%s)" % (table_name, ", ".join(column_names), ", ".join(["%s" for _ in range(len(column_names))])), row)
+
+def insert_data(curs):
+    insert_data_into_table(curs, VENUE_TABLE)
+    insert_data_into_table(curs, TEAM_TABLE)
+    insert_data_into_table(curs, MATCH_OFFICIALS_TABLE)
+    insert_data_into_table(curs, PLAYERS_TABLE)
+    insert_data_into_table(curs, MATCH_TABLE)
+    insert_data_into_table(curs, MATCH_PLAYER_TABLE)
+    insert_data_into_table(curs, BOWL_BY_BOWL_TABLE)
+
+def create_tables(curs):
+    create_venue_table(curs)
+    create_team_table(curs)
+    create_match_officials_table(curs)
+    create_players_table(curs)
+    create_match_table(curs)
+    create_match_player_table(curs)
+    create_bowl_by_bowl_table(curs)
 
 if __name__ == '__main__':
-    # create_database(DATABASE_NAME)
+    create_database(DATABASE_NAME)
 
     with connect_potsgres(dbname=DATABASE_NAME) as conn:
         conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
         curs = conn.cursor()
-        create_venue_table(curs)
-        create_team_table(curs)
-        create_match_officials_table(curs)
-        create_players_table(curs)
-        create_match_table(curs)
-        create_match_player_table(curs)
-        create_bowl_by_bowl_table(curs)
-
-
-
+        create_tables(curs)
+        insert_data(curs)

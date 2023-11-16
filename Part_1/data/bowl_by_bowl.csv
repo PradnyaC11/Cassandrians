@@ -1,0 +1,11 @@
+match_id,inning_id,bowl_no,over_no,wicket,runs_by_batter,runs_by_extras,batsman_id,bowler_id,non_striker_id,wicket_type,catcher_id,player_out_id
+1,1,1,1,false,0,0,1,2,4,NULL,NULL,NULL
+1,1,2,1,false,0,0,1,2,4,NULL,NULL,NULL
+1,1,3,1,false,0,0,1,2,4,NULL,NULL,NULL
+1,1,4,1,false,0,0,1,2,4,NULL,NULL,NULL
+1,1,5,1,false,0,0,1,2,4,NULL,NULL,NULL
+1,1,6,1,false,0,0,1,2,4,NULL,NULL,NULL
+1,1,1,2,false,0,0,4,5,1,NULL,NULL,NULL
+1,1,2,2,false,0,0,4,5,1,NULL,NULL,NULL
+1,1,3,2,false,0,0,4,5,1,NULL,NULL,NULL
+1,1,4,2,false,0,0,4,5,1,NULL,NULL,NULL
