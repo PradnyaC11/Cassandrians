@@ -165,7 +165,7 @@ def insert_data_into_table(curs, table_name):
     for row in data:
         # Insert None for NULL values
         for i, value in enumerate(row):
-            if value == "NULL":
+            if value == "":
                 row[i] = None
         # Insert the values into the table
         curs.execute("INSERT INTO %s (%s) VALUES (%s)" % (table_name, ", ".join(column_names), ", ".join(["%s" for _ in range(len(column_names))])), row)

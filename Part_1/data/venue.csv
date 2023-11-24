@@ -1,11 +1,22 @@
 venue_id,address1,address2,city,state,country
-1,Melbourne Cricket Ground,Jolimont,Melbourne,VIC,Australia
-2,Sydney Cricket Ground,Moore Park,Sydney,NSW,Australia
-3,Brabourne Stadium,Stadium Road,Mumbai,MH,India
-4,Eden Gardens,Eden Gardens Rd,Kolkata,WB,India
-5,Wankhede Stadium,Dinshaw Vachha Rd,Churchgate,MH,India
-6,Lord's Cricket Ground,St John's Wood,London,NW8,England
-7,The Oval,Kennington,London,SE11,England
-8,Trent Bridge,Bridgford,Nottingham,NG1,England
-9,Newlands Cricket Ground,Claremont,Cape Town,7700,South Africa
-10,SuperSport Park,Centurion,Pretoria,0046,South Africa
+1,Shere Bangla National Stadium,Mirpur,Dhaka,Dhaka,Bangladesh
+2,Zahur Ahmed Chowdhury Stadium,Nasirabad,Chittagong,Chittagong,Bangladesh
+3,Sylhet Stadium,Sylhet,Sylhet,Sylhet,Bangladesh
+4,Himachal Pradesh Cricket Association Stadium,HPCA Cricket Stadium,Dharamshala,Himachal Pradesh,India
+5,Vidarbha Cricket Association Stadium,Jamtha,Jamtha,Nagpur,India
+6,Wankhede Stadium,D Road,Churchgate,Mumbai,India
+7,Eden Gardens,BBD Bagh,Kolkata,Kolkata,India
+8,M Chinnaswamy Stadium,MG Road,Near Gandhi Park,Bangalore,India
+9,Punjab Cricket Association IS Bindra Stadium,SAS Nagar,Mohali,Punjab,India
+10,Feroz Shah Kotla,Bahadur Shah Zafar Marg,Delhi,Delhi,India
+11,Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1),Al Amerat,Muscat,Muscat,Oman
+12,Zayed Cricket Stadium,Abu Dhabi,Near Khalifa City,Abu Dhabi,United Arab Emirates
+13,Sharjah Cricket Stadium,Al Eman Rd,Sharjah,Sharjah,United Arab Emirates
+14,Dubai International Cricket Stadium,Dubai Sports City,Dubai,Dubai,United Arab Emirates
+15,GMHBA Stadium,South Geelong,Victoria,Victoria,Australia
+16,Bellerive Oval,Hobart,Bellerive,Tasmania,Australia
+17,Sydney Cricket Ground,Driver Ave,New South Wales,Sydney,Australia
+18,Perth Stadium,Victoria Park Dr,Burswood,Perth,Australia
+19,Melbourne Cricket Ground,Brunton Ave,Richmond,Melbourne,Australia
+20,Brisbane Cricket Ground,Woolloongabba,Brisbane,Vulture St,Australia
+21,Adelaide Oval,War Memorial Dr,North Adelaide,South Australia,Australia

@@ -1,11 +1,21 @@
 team_id,team_name,coach,home_ground,owner
-1,India,Ravi Shastri,5,Indian Cricket Board
-2,Australia,Justin Langer,2,Western Australia Cricket Association
-3,England,Chris Silverwood,7,England and Wales Cricket Board
-4,South Africa,Mark Boucher,9,South Africa Cricket Board
-5,New Zealand,Gary Stead,8,New Zealand Cricket Board
-6,Pakistan,Misbah-ul-Haq,1,Pakistan Cricket Board
-7,Sri Lanka,Mickey Arthur,4,Sri Lanka Cricket Board
-8,West Indies,Phil Simmons,3,West Indies Cricket Board
-9,Bangladesh,Russell Domingo,6,Bangladesh Cricket Board
-10,Zimbabwe,Lance Klusener,10,Zimbabwe Cricket Board
+1,Afghanistan,Graham Reid,1,Afghanistan Cricket Board
+2,Australia,Andrew McDonald,2,Cricket Australia
+3,Bangladesh,Russell Domingo,3,Bangladesh Cricket Board
+4,England,Matthew Mott,4,England and Wales Cricket Board
+5,Hong Kong,Simon Muggleton,5,Hong Kong Cricket Association
+6,India,Rahul Dravid,6,Board of Control for Cricket in India
+7,Ireland,Graham Ford,7,Cricket Ireland
+8,Namibia,Pierre de Bruyn,8,Cricket Namibia
+9,Nepal,Pubudu Dassanayake,9,Cricket Association of Nepal
+10,Netherlands,Ryan Campbell,10,Koninklijke Nederlandse Cricket Bond
+11,New Zealand,Gary Stead,11,New Zealand Cricket
+12,Oman,Duleep Mendis,12,Oman Cricket
+13,Pakistan,Saqlain Mushtaq,13,Pakistan Cricket Board
+14,Papua New Guinea,Simon Lavington,14,Cricket Papua New Guinea
+15,Scotland,Shane Burger,15,Cricket Scotland
+16,South Africa,Mark Boucher,16,Cricket South Africa
+17,Sri Lanka,Chris Silverwood,17,Sri Lanka Cricket
+18,United Arab Emirates,Robin Singh,18,Emirates Cricket Board
+19,West Indies,Phil Simmons,19,Cricket West Indies
+20,Zimbabwe,Dave Houghton,20,Zimbabwe Cricket
