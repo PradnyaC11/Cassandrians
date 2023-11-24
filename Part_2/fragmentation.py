@@ -1,33 +1,11 @@
 import psycopg2
-import csv
 #pylint:skip-file
 
 DATABASE_NAME = 'cassandrians'
 DB_USER = "postgres"
-# DB_PASS = "postgres"
 DB_PASS = "Happyplace11*"
 DB_HOST = "localhost"
 DB_PORT = 5432
-VENUE_TABLE = 'venue'
-TEAM_TABLE = "team"
-MATCH_TABLE = "match"
-MATCH_PLAYER_TABLE = "match_player"
-MATCH_OFFICIALS_TABLE = "match_officials"
-PLAYERS_TABLE = "players"
-BOWL_BY_BOWL_TABLE = "bowl_by_bowl"
-
-
-def create_database(dbname):
-    """Connect to the PostgreSQL by calling connect_postgres() function
-       Create a database named {DATABASE_NAME}
-       Close the connection"""
-    conn = connect_potsgres("postgres")
-    curs = conn.cursor()
-    conn.autocommit = True
-    sql_create_database = "create database  " + dbname
-    curs.execute(sql_create_database)
-    conn.close()
-
 
 def connect_potsgres(dbname):
     """Connect to the PostgreSQL using psycopg2 with default database
@@ -72,11 +50,30 @@ def range_partition(curs):
     curs.execute(f"CREATE TABLE IF NOT EXISTS runs_boundaries PARTITION OF runs_per_ball FOR VALUES FROM ('4') TO ('6'); ")
     conn.commit()
 
+def start_containers():
+    subprocess.run(["docker-compose", "-f", "docker-compose.yaml", "up", "-d"])
+
+def stop_containers():
+    subprocess.run(["docker-compose", "-f", "docker-compose.yaml", "down"])
+
+def wait_for_replication():
+    time.sleep(10)  
+
+def rep():
+    try:
+        start_containers()
+        wait_for_replication()
+        print("PostgreSQL master-slave replication set up successfully!")
+    except Exception as e:
+        print(f"Error setting up master-slave replication: {e}")
+    finally:
+        stop_containers()
+
 if __name__ == '__main__':
-    create_database(DATABASE_NAME)
 
     with connect_potsgres(dbname=DATABASE_NAME) as conn:
         conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
         curs = conn.cursor()
         list_partition(curs)
         range_partition(curs)
+        rep()
