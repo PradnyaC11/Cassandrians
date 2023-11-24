@@ -48,7 +48,7 @@ def read_team_id_trans(player_id, thread_id):
     try:
 
         with conn.cursor() as cursor:
-            # cursor.execute("PREPARE TRANSACTION 'read_transaction';")
+            # cursor.execute("BEGIN; PREPARE TRANSACTION 'read_transaction';")
             cursor.execute("BEGIN; SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;")
             sql_statement = "SELECT team_id FROM players WHERE player_id = %s;"
             params = (player_id,)
