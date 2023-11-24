@@ -1,0 +1,38 @@
+# docker-compose-master-slave.yml
+
+version: '3'
+
+services:
+  postgres-master:
+    image: postgres:latest
+    container_name: postgres-master
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Happyplace11*
+      POSTGRES_DB: cassandrians
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./master_data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+  postgres-slave:
+    image: postgres:latest
+    container_name: postgres-slave
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Happyplace11*
+      POSTGRES_DB: cassandrians
+      POSTGRES_MASTER_HOST: postgres-master
+      POSTGRES_MASTER_PORT: 5432
+      POSTGRES_MASTER_USER: postgres
+      POSTGRES_MASTER_PASSWORD: Happyplace11*
+    volumes:
+      - ./slave_data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge

@@ -1,9 +1,11 @@
 import psycopg2
 import csv
+#pylint:skip-file
 
 DATABASE_NAME = 'cassandrians'
 DB_USER = "postgres"
-DB_PASS = "postgres"
+# DB_PASS = "postgres"
+DB_PASS = "Happyplace11*"
 DB_HOST = "localhost"
 DB_PORT = 5432
 VENUE_TABLE = 'venue'
@@ -205,7 +207,7 @@ def list_partition(curs):
 
 
 def range_partition(curs):
-    # cur = curs.cursor()
+
     table = f"CREATE TABLE IF NOT EXISTS runs_per_ball (batsman_id int, bowl_no int, runs_by_batter int) partition by range(runs_by_batter);"
     curs.execute(table)
     conn.commit()
@@ -224,6 +226,6 @@ if __name__ == '__main__':
         conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
         curs = conn.cursor()
         create_tables(curs)
-        insert_data(curs)
+        # insert_data(curs)
         list_partition(curs)
         range_partition(curs)
