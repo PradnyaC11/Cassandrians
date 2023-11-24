@@ -66,7 +66,7 @@ def read_team_id_trans(player_id, thread_id):
         
 
 # Function to update team ID for a player
-def update_team_id_no_transaction(player_id, new_team_id, thread_id):
+def update_team_id(player_id, new_team_id, thread_id):
     # Connect to the PostgreSQL database
     conn = psycopg2.connect(
         dbname="cassandrians",
@@ -98,11 +98,11 @@ player_id = 1
 # Simulate read and update operations concurrently
 with ThreadPoolExecutor(max_workers=2) as executor:
     executor.submit(read_team_id, player_id, 1)
-    executor.submit(update_team_id_no_transaction, player_id, 2, 2)
+    executor.submit(update_team_id, player_id, 2, 2)
 
 time.sleep(2)
 print("Now lets see the same scenario with transaction management")
 # Simulate read and update operations concurrently
 with ThreadPoolExecutor(max_workers=2) as executor:
     executor.submit(read_team_id_trans, player_id, 1)
-    executor.submit(update_team_id_no_transaction, player_id, 3, 2)
+    executor.submit(update_team_id, player_id, 3, 2)
