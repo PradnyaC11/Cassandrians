@@ -246,7 +246,7 @@ Over_No,Over_Score,Short_comm,Commentary,Bold_Comm,Innings_ID,Ball_ID,Match_ID
 0.3,0,"['Chahar to de Kock, no run']",pitched up and de Kock drives but straight to extra cover,[],1181768-2,120,1181768
 0.2,1,"['Chahar to Sharma, 1 run']","short of length on middle and leg, nudged into the leg side for a quick single",[],1181768-2,121,1181768
 0.1,1,"['Chahar to de Kock, 1 run']","slants a short ball across, de Kock cuts and gets a thick bottom edge to Harbhajan at square third man",[],1181768-2,122,1181768
-18.6,4lb,"['Sharma to Bravo, 4 leg byes']","there it is, CSK are through to their eighth IPL final. Another bouncer, angling into the left ribcage. Steps across and fends at it, gets just enough on it to beat Pant throwing himself to his left behind the wicket",[],1181767-1,0,1181767
+18.6,4b,"['Sharma to Bravo, 4 leg byes']","there it is, CSK are through to their eighth IPL final. Another bouncer, angling into the left ribcage. Steps across and fends at it, gets just enough on it to beat Pant throwing himself to his left behind the wicket",[],1181767-1,0,1181767
 18.5,1,"['Sharma to Rayudu, 1 run']","short, gets up to chest height on off stump, pulled through midwicket, along the ground",[],1181767-1,1,1181767
 18.4,w,"['Sharma to Dhoni, OUT']","short outside off, and Dhoni's pulled it straight to the man on the boundary! Keemo Paul hardly had to move there, at deep square leg. CSK will have to wait just a little longer",[],1181767-1,2,1181767
 18.3,0,"['Sharma to Dhoni, no run']","back of a length on off stump, punched to extra-cover",[],1181767-1,3,1181767
@@ -257,7 +257,7 @@ Over_No,Over_Score,Short_comm,Commentary,Bold_Comm,Innings_ID,Ball_ID,Match_ID
 17.4,0,"['Paul to Rayudu, no run']","slower short ball, jags in off the pitch from outside off. Rayudu is through his pull too early and the ball grazes his glove and hits his stomach",[],1181767-1,8,1181767
 17.3,0,"['Paul to Rayudu, no run']","bouncer outside off, Rayudu thinks of hooking, and in the end decides to drop his bat out of the way and evade it",[],1181767-1,9,1181767
 17.2,4,"['Paul to Rayudu, FOUR runs']","back of a length, angling down leg, and you can't keep bowling that line. Rayudu tickles it away nice and fine, and fine leg is once again too fine to be able to stop this",[],1181767-1,10,1181767
-17.1,1lb,"['Paul to Dhoni, 1 leg bye']","full, angling into the pads, clipped to fine leg",[],1181767-1,11,1181767
+17.1,1b,"['Paul to Dhoni, 1 leg bye']","full, angling into the pads, clipped to fine leg",[],1181767-1,11,1181767
 16.6,0,"['Boult to Rayudu, no run']","on the fuller side of a good length on middle and leg, blocked back to the bowler",[],1181767-1,12,1181767
 16.5,1,"['Boult to Dhoni, 1 run']","digs it in short, gets it up near Dhoni's right collarbone. Rolls his wrists over to pull along the ground to fine leg",[],1181767-1,13,1181767
 16.4,2,"['Boult to Dhoni, 2 runs']","full on middle and leg, clipped to the left of fine leg",[],1181767-1,14,1181767

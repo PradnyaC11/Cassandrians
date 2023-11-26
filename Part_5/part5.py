@@ -12,7 +12,7 @@ password = 'cassandra'
 
 contact_points = ['localhost']
 
-keyspace_name = 'part5keyspace'
+keyspace_name = 'commentary_keyspace'
 
 # Name of the table in Cassandra
 table_name = 'commentary'
@@ -31,7 +31,10 @@ def create_table():
                    "Match_ID TEXT," +
                    "PRIMARY KEY (Innings_ID, Ball_ID)" +
                    ");")
+
     session.execute(table_query)
+
+    print("Commentary table created.\n")
 
 
 def insert_csv_file_data():
@@ -47,26 +50,28 @@ def insert_csv_file_data():
             query = f"INSERT INTO {table_name} ({', '.join(header)}) VALUES ({', '.join(['%s'] * len(header))})"
             session.execute(query, row)
 
+    result = session.execute(f"select count(*) as count from {table_name}")
+    print(f"Inserted {result.one().count} rows of data into {table_name} table\n")
+
 
 def read_query():
     # Sample read query to display 5 entries in the table
     # Define your CQL SELECT query
-    select_query = f"SELECT * FROM {table_name} LIMIT 5"  # Limiting to 10 rows for example
+    select_query = f"SELECT Over_no, Over_score, Short_comm, Innings_ID, Ball_ID FROM {table_name} LIMIT 5"  # Limiting to 10 rows for example
 
     # Execute the query
     rows = session.execute(select_query)
-
+    print("Sample read query result: ")
     # Process the results
     for row in rows:
         # Access columns by their names
         print(f"Over_No: {row.over_no}, Over_Score: {row.over_score}, Short_comm: {row.short_comm}, "
-              f"Commentary: {row.commentary}, Bold_Comm: {row.bold_comm}, Innings_ID: {row.innings_id}, "
-              f"Ball_ID: {row.ball_id}, Match_ID: {row.match_id}")
+              f"Innings_ID: {row.innings_id}, Ball_ID: {row.ball_id}")
 
 
 def update_query():
     # Sample update query to update over_score & short comment
-    
+
     # Query to show data before update.
     select_query = f"SELECT * FROM {table_name} WHERE Innings_ID = '1181768-1' and Ball_ID = '51'"
     # Execute the query
@@ -101,7 +106,13 @@ def delete_query():
     delete_query = f"DELETE FROM {table_name} WHERE Innings_ID = '1181768-1' and Ball_ID = '2'"
 
     # Execute the delete query
-    session.execute(delete_query)
+    # session.execute(delete_query)
+
+    result = session.execute(
+        f"Select count(*) as count from {table_name}  WHERE Innings_ID = '1181768-1' and Ball_ID = '2'")
+    if result.one().count == 0:
+        print("\nRow with Innings_ID = '1181768-1' and Ball_ID = '2' deleted.\n")
+
 
 def create_index():
     # Query to create index on Over_score, so that it can be added to where condition
@@ -120,6 +131,7 @@ def get_sixes_by_innings():
 
     rows = session.execute(select_query)
 
+    print("Number of sixes in every Innings -")
     # Process the results
     for row in rows:
         print(f"Innings ID: {row.innings_id}, Sixes Count: {row.sixes_count}")
@@ -135,15 +147,15 @@ if __name__ == '__main__':
 
     # Create a keyspace
     session.execute(
-        f"CREATE KEYSPACE IF NOT EXISTS {keyspace_name} WITH replication = {{'class': 'SimpleStrategy', 'replication_factor': 1}}")
+        f"CREATE KEYSPACE IF NOT EXISTS {keyspace_name} WITH replication = {{'class': 'SimpleStrategy', 'replication_factor': 2}}")
 
     # Set the keyspace
     session.set_keyspace(keyspace_name)
 
     create_table()
     insert_csv_file_data()
-    read_query()
-    update_query()
-    delete_query()
-    create_index()
-    get_sixes_by_innings()
+    # read_query()
+    # update_query()
+    # delete_query()
+    # create_index()
+    # get_sixes_by_innings()
