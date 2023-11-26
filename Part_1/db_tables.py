@@ -188,8 +188,48 @@ def create_tables(curs):
     create_match_player_table(curs)
     create_bowl_by_bowl_table(curs)
 
+def sample_queries(curs):
+    # Five sample queries that shows the relationship of our tables
+    # 1. List all matches played at a specific venue
+    print('\nList of matches played at M Chinnaswamy Stadium:')
+    venue_name = "M Chinnaswamy Stadium"
+    curs.execute("SELECT match_id, start_time, team_1.team_name AS team_1_name, team_2.team_name AS team_2_name FROM match INNER JOIN venue ON match.venue_id = venue.venue_id INNER JOIN team team_1 ON match.team_1 = team_1.team_id INNER JOIN team team_2 ON match.team_2 = team_2.team_id WHERE venue.address1 = %s;", (venue_name,))
+    results = curs.fetchall()
+    for row in results:
+        print(row)
 
+    # 2. List all matches officiated by a specific umpire
+    print('\nList of matches officiated by a Adrian Holdstock')
+    umpire_name = 'Adrian Holdstock'
+    curs.execute("SELECT match_id, start_time, team_1.team_name AS team_1_name, team_2.team_name AS team_2_name, umpire_1.umpire_name AS umpire_1_name, umpire_2.umpire_name AS umpire_2_name, umpire_3.umpire_name AS umpire_3_name FROM match INNER JOIN match_officials umpire_1 ON match.umpire_id_1 = umpire_1.umpire_id INNER JOIN match_officials umpire_2 ON match.umpire_id_2 = umpire_2.umpire_id INNER JOIN match_officials umpire_3 ON match.umpire_id_3 = umpire_3.umpire_id INNER JOIN team team_1 ON match.team_1 = team_1.team_id INNER JOIN team team_2 ON match.team_2 = team_2.team_id WHERE umpire_1.umpire_name = %s OR umpire_2.umpire_name = %s OR umpire_3.umpire_name = %s", (umpire_name, umpire_name, umpire_name,))
+    results = curs.fetchall()
+    for row in results:
+        print(row)
+        # Get the umpire name
+    
 
+    # 3. Find all matches where a specific team was the toss winner:
+    print('\nList of matches where India was the toss winner')
+    team_name = "India"
+    curs.execute("SELECT match_id, start_time, team_1.team_name AS team_1_name, team_2.team_name AS team_2_name, toss_winner.team_name AS toss_winner_name, toss_decision, toss_outcome FROM match INNER JOIN team team_1 ON match.team_1 = team_1.team_id INNER JOIN team team_2 ON match.team_2 = team_2.team_id INNER JOIN team toss_winner ON match.toss_winner = toss_winner.team_id WHERE toss_winner.team_name = %s;", (team_name,))
+    results = curs.fetchall()
+    for row in results:
+        print(row)
+
+    # 4. Find all bowlers who have taken at least one wicket
+    print('\nList of bowlers who have taken at least one wicket')
+    curs.execute("SELECT DISTINCT player_name FROM players INNER JOIN bowl_by_bowl ON players.player_id = bowl_by_bowl.bowler_id WHERE wicket = TRUE;")
+    results = curs.fetchall()
+    for row in results:
+        print(row)
+
+    # 5. Find all matches where a specific player was the captain of their team
+    print('\nList of matches where MS Dhoni was the captain of their team')
+    player_name = "MS Dhoni"
+    curs.execute("SELECT match_id, start_time, team_1.team_name AS team_1_name, team_2.team_name AS team_2_name, team_1_captain.player_name AS team_1_captain_name, team_2_captain.player_name AS team_2_captain_name FROM match INNER JOIN team team_1 ON match.team_1 = team_1.team_id INNER JOIN team team_2 ON match.team_2 = team_2.team_id INNER JOIN players team_1_captain ON match.team_1_captain_id = team_1_captain.player_id INNER JOIN players team_2_captain ON match.team_2_captain_id = team_2_captain.player_id WHERE team_1_captain.player_name = %s OR team_2_captain.player_name = %s", (player_name, player_name,))
+    results = curs.fetchall()
+    for row in results:
+        print(row)
 
 if __name__ == '__main__':
     create_database(DATABASE_NAME)
@@ -199,4 +239,4 @@ if __name__ == '__main__':
         curs = conn.cursor()
         create_tables(curs)
         insert_data(curs)
-        
+        sample_queries(curs)
