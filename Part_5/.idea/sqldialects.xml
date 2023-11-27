@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/7039209a-48e6-4c3e-ba82-b76fe65e4bf9/console_1.sql" dialect="CassandraQL" />
     <file url="file://$PROJECT_DIR$/part5.py" dialect="CassandraQL" />
   </component>
 </project>

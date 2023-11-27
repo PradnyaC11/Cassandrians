@@ -106,7 +106,7 @@ def delete_query():
     delete_query = f"DELETE FROM {table_name} WHERE Innings_ID = '1181768-1' and Ball_ID = '2'"
 
     # Execute the delete query
-    # session.execute(delete_query)
+    session.execute(delete_query)
 
     result = session.execute(
         f"Select count(*) as count from {table_name}  WHERE Innings_ID = '1181768-1' and Ball_ID = '2'")
@@ -154,8 +154,8 @@ if __name__ == '__main__':
 
     create_table()
     insert_csv_file_data()
-    # read_query()
-    # update_query()
-    # delete_query()
-    # create_index()
-    # get_sixes_by_innings()
+    read_query()
+    update_query()
+    delete_query()
+    create_index()
+    get_sixes_by_innings()
