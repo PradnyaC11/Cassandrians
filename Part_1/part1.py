@@ -156,7 +156,7 @@ def create_bowl_by_bowl_table(curs):
     curs.execute(create_bowl_by_bowl_table_query)
 
 def insert_data_into_table(curs, table_name):
-    data = read_csv_datacsvObject = csv.reader(open(r'Part_1/data/'+table_name+'.csv', 'r'), dialect = 'excel',  delimiter = ',')
+    data = read_csv_datacsvObject = csv.reader(open(r'data/'+table_name+'.csv', 'r'), dialect = 'excel',  delimiter = ',')
     next(data)
     # Get the column names from the table
     curs.execute("SELECT column_name FROM information_schema.columns WHERE table_name = %s ORDER BY ordinal_position", (table_name,))
